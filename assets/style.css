@@ -48,19 +48,90 @@
 .bg-green{
     background-color: var(--secondary-color);
 }
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    /* position: sticky;
+    top: 0;
+    z-index: 1020; */
+}
+.nav, .nav ul{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    list-style: none;
+}
+.nav ul li{
+    font-size: 0.7rem;
+    position: relative;
+    cursor: pointer;
+}
+.nav ul li::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--secondary-color);
+    opacity: 0;
+    bottom: -5px;
+    left: 0;
+}
+.nav ul li:hover::before{
+    opacity: 1;
+    transition: 0.8s;
+}
+.nav ul li:hover{
+    color: var(--secondary-color);
+}
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.contact i{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background-color: var(--white-color);
+    color: black;
+}
+.contact button{
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    color: #fff;
+    border: 2px solid #fff;
+    background-color: transparent;
+    border-radius: 100px;
+}
+.contact button:hover{
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: 0.8s;
+}
 .hero{
     background-color: var(--secondary-color);
     min-height: 100vh;
     position: relative;
     background: url(../assets/images/wave-haikei\ \(1\).svg) no-repeat center;
     background-size: cover;
+    padding: 20px 10%;
+}
+.hero-content{
+    min-height: 90vh;
 }
 .hero-text{
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 8%;
     justify-content: center;
 }
 .hero-image{
@@ -553,7 +624,7 @@ small{
 
 
 @media (max-width:1000px){
-    .hero{
+    .hero-content{
         flex-direction: column;
     }
     .text-1{
@@ -561,6 +632,13 @@ small{
     }
 }
 
+@media (max-width:900px) {
+    nav, .nav{
+        flex-direction: column;
+        align-items: start;
+        gap: 30px;
+    }
+}
 @media (max-width:768px){
     .hero{
         padding: 10px;
@@ -613,6 +691,7 @@ small{
     }
     .footer{
         flex-direction: column;
+        width: 100%;
     }
     .footer-left-content-1{
         border: none;
@@ -627,6 +706,9 @@ small{
     .hero-profile img{
         width: 50px;
         height: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
     }
     .story{
         padding: 5%;
@@ -641,8 +723,23 @@ small{
     .content-right{
         padding: 10px;
     }
+    .footer-left-content-2{
+        flex-direction: column;
+    }
     .footer-left-content-1{
         flex-direction: column;
+    }
+    .footer-right-icons{
+        flex-direction: column;
+    }
+    .name{
+        flex-direction: column;
+    }
+}
+@media (max-width: 400px) {
+    .nav ul{
+        flex-direction: column;
+        gap: 20px;
     }
 }
 @media (max-width:368px){
